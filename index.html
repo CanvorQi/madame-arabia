@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Madame Arabia</title>
+<meta name="description" content="A1, A2 ve B1 seviyesinde harekeli kelime havuzları, kelimelere bağlı cümle ve paragraflar, sınavlar: Arapça öğrenme uygulaması.">
+<script>
+(function () {
+    try {
+        var saved = localStorage.getItem("mar_theme");
+        var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3d2384">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Madame Arabia">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script defer src="js/util.js"></script>
+<script defer src="js/content/themes.js"></script>
+<script defer src="js/content/words-content.js"></script>
+<script defer src="js/content/words-function.js"></script>
+<script defer src="js/content/sentences.js"></script>
+<script defer src="js/content/paragraphs.js"></script>
+<script defer src="js/linker.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/exam.js"></script>
+<script defer src="js/pages-words.js"></script>
+<script defer src="js/pages-texts.js"></script>
+<script defer src="js/pages-exam.js"></script>
+<script defer src="js/pages-manage.js"></script>
+<script defer src="js/app.js"></script>
+</head>
+<body>
+
+<aside class="app-sidebar">
+    <a class="wordmark" href="#/">
+        <img src="icons/icon.svg" alt="" width="38" height="38">
+        <span>Madame<em lang="en">Arabia</em></span>
+    </a>
+    <nav class="sidebar-nav" aria-label="Ana menü">
+        <a class="nav-btn" data-nav="home" href="#/"><span data-icon="home"></span>Ana Sayfa</a>
+        <a class="nav-btn" data-nav="words" href="#/kelimeler"><span data-icon="book"></span>Kelimeler</a>
+        <a class="nav-btn" data-nav="texts" href="#/cumleler"><span data-icon="text"></span>Cümle &amp; Paragraf</a>
+        <a class="nav-btn" data-nav="exams" href="#/sinavlar"><span data-icon="exam"></span>Sınavlar</a>
+        <a class="nav-btn" data-nav="add" href="#/ekle"><span data-icon="plus"></span>Ekle</a>
+    </nav>
+    <div class="sidebar-progress" id="sidebarProgress"></div>
+    <div class="sidebar-foot">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Temayı değiştir"></button>
+        <span><span lang="ar">اَلْعَرَبِيَّة</span> · A1–B1</span>
+    </div>
+</aside>
+
+<header class="topbar">
+    <a class="wordmark" href="#/">
+        <img src="icons/icon.svg" alt="" width="30" height="30">
+        <span>Madame<em lang="en">Arabia</em></span>
+    </a>
+    <div class="topbar-right">
+        <button class="install-btn" type="button" data-install hidden>Yükle</button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Temayı değiştir"></button>
+    </div>
+</header>
+
+<main class="app-shell">
+    <div class="layout" id="view"></div>
+</main>
+
+<nav class="bottom-nav" aria-label="Alt menü">
+    <a class="bottom-btn" data-nav="home" href="#/"><span data-icon="home"></span><span>Ana Sayfa</span></a>
+    <a class="bottom-btn" data-nav="words" href="#/kelimeler"><span data-icon="book"></span><span>Kelimeler</span></a>
+    <a class="bottom-btn" data-nav="texts" href="#/cumleler"><span data-icon="text"></span><span>Metinler</span></a>
+    <a class="bottom-btn" data-nav="exams" href="#/sinavlar"><span data-icon="exam"></span><span>Sınavlar</span></a>
+    <a class="bottom-btn" data-nav="add" href="#/ekle"><span data-icon="plus"></span><span>Ekle</span></a>
+</nav>
+
+<dialog id="sheet" class="sheet" aria-label="Kelime bilgisi"></dialog>
+<dialog id="dialog" class="dialog"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
